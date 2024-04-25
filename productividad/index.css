@@ -1,0 +1,181 @@
+/* Estilos para la página */
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.header {
+    position: relative;
+    margin-top: 15px;
+    left: 10%;
+    border-radius: 50px;
+    background-color: #244183;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos para el botón de iniciar sesión en el encabezado */
+#openModalBtn {
+    position: absolute;
+    margin-top: -60px;
+    background-color: #ffe600; /* Color amarillo */
+    color: #244183; /* Color de texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    left: 80%; /* Ajusta la posición horizontal */
+    transform: translateX(-50%); /* Centra el botón horizontalmente */
+}
+
+#openModalBtn:hover {
+    background-color: #18af18; /* Cambia el color al pasar el cursor */
+}
+
+form {
+    position: relative;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 40px;
+    border: 10px solid #244183;
+    border-radius: 50px;
+    background: linear-gradient(to right, #ffe600, #ffe600 75%, transparent 50%);
+}
+
+h1 {
+    color: #ffe600;
+    position: relative;
+    margin-top: 20px;
+    left: -10%;
+}
+
+h2 {
+    color: #244183;
+    text-align: center;
+}
+
+#logo {
+    max-width: 400px; /* Establece el ancho máximo al 50% del contenedor */
+    height: auto; /* Ajusta automáticamente la altura para mantener la proporción */
+    display: block; /* Asegura que la imagen se comporte como bloque */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    margin-top: 20px; /* Agrega un espacio superior para separar del encabezado */
+}
+
+input {
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    width: calc(100% - 30px);
+    padding: 10px 15px;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+input::placeholder {
+    color: #244183;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 10px auto;
+}
+
+input[type="submit"]:hover {
+    background-color: #0F3057;
+}
+
+.show-password-button {
+    position: absolute;
+    margin-top: 30px;
+    left: 87%;
+    cursor: pointer;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 2px 10px;
+    border: none;
+    border-radius: 70%;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.show-password-button:hover {
+    background-color: #ffe600;
+}
+
+.submit-button {
+    position: relative;
+    margin-top: auto;
+    background-color: #244183; /* Color amarillo */
+    color: #FFFFFF; /* Color de texto */
+    padding: auto auto;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    left: auto; /* Ajusta la posición horizontal */
+}
+
+.submit-button:hover {
+    background-color: #18af18;
+}
+
+   /* Estilos para el formulario emergente */
+   .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

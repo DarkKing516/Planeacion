@@ -1,0 +1,548 @@
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    margin-left: 10px; /* Aplica el margen a todos los elementos */
+}
+
+h1, h2 {
+    margin-top: 2px;
+    text-align: center;
+    color: #244183;
+    font-weight: bold;
+    margin-left: 0; /* Resetea el margen para h1 */
+}
+
+p {
+    color: #244183;
+    font-weight: bold;
+}
+
+/* Estilos para el contenedor de SEDE, USUARIO y FECHA */
+.container-info {
+    max-width: 900px; /* Ajustar el ancho según sea necesario */
+    margin: 100px auto;
+    padding: 20px;
+    border: 10px solid #244183;
+    border-radius: 50px;
+    position: relative;
+    background: linear-gradient(to right, #ffe600, #ffe600 75%, transparent 50%);
+    overflow: hidden;
+    margin-top: auto; /* Espacio entre el botón "Ir al menú" y el contenedor */
+}
+
+.container-info::before {
+    margin-top: -10px;
+    content: '';
+    position: relative;
+    top: -20px;
+    bottom: 0;
+    left: auto;
+    border-left: 20px solid #244183;
+    transform: translateX(-50%);
+    z-index: -1;
+    background-color: transparent;
+    border-left: none;
+    width: auto;
+}
+
+.container-izquierda,
+.container-central,
+.container-derecha {
+    width: calc(305px - 10px);
+    float: left;
+}
+
+.container-izquierda,
+.container-central {
+    margin-right: auto;
+}
+
+.container-derecha {
+    margin-right: auto;
+}
+
+.container-izquierda label,
+.container-central label,
+.container-derecha label {
+    width: auto; /* Ancho automático */
+    text-align: center; /* Centrar el texto */
+    margin-right: auto; /* Eliminar el margen derecho */
+    margin-bottom: auto; /* Espacio entre etiqueta e input */
+    font-weight: bold; /* Negrita */
+    color: #244183; /* Color azul */
+}
+
+.container-izquierda select,
+.container-derecha input[type="date"] {
+    width: calc(auto - 8px); /* Reducir el ancho para evitar desbordamientos */
+    margin-top: auto;
+}
+
+/* Estilos para el campo de entrada de usuario */
+.container-central #usuario {
+    flex: 1;
+    margin-left: -5px;
+    margin-right: 0;
+    width: calc(auto - auto);
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: auto;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+    padding: 11px;
+    margin-top: auto;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+#form-produccion {
+    margin-top: -10px;
+    max-width: auto; /* Ajusta el ancho del formulario */
+    margin: 20px auto;
+    padding: 20px;
+    border: 10px solid #244183;
+    border-radius: 50px;
+    position: relative;
+    background: linear-gradient(to right, #ffffff, #ffffff 75%, transparent 50%);
+    overflow: hidden;
+}
+
+#form-produccion::before {
+    content: '';
+    position: relative;
+    top: auto;
+    bottom: 0;
+    left: auto;
+    border-left: 20px solid #244183;
+    transform: translateX(-50%);
+    z-index: -1;
+    background-color: transparent;
+    border-left: none;
+    width: auto;
+}
+
+/* Estilos para etiquetas y selectores */
+label {
+    width: auto; /* Ancho automático */
+    text-align: center; /* Centrar el texto */
+    margin-right: 0; /* Eliminar el margen derecho */
+    margin-bottom: 3px; /* Espacio entre etiqueta e input */
+    font-weight: bold; /* Negrita */
+    color: #244183; /* Color azul */
+}
+
+input[type="checkbox"] {
+    flex: 1; /* Hacer que el checkbox ocupe el 50% del contenedor */
+    margin-right: 15px; /* Añadir un margen a la derecha para separar los elementos */
+    width: 17px; /* Ancho del checkbox */
+    height: 17px; /* Altura del checkbox */
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 5px; /* Espacio entre checkboxes */
+    position: relative;
+    z-index: 2;
+    padding: 10px; /* Reducir el tamaño del padding */
+    margin-top: 0;
+    border: 2px solid #244183; /* Borde del checkbox */
+    background-color:#ffe600; /* Color de fondo blanco para cubrir el fondo del checkbox */
+}
+
+.descansos input[type="checkbox"]{
+    left: auto;
+    flex: 1; /* Hace que los selectores y inputs ocupen el 50% del espacio */
+    margin-left: 0; /* Espacio entre el input y el select */
+    margin-right: auto; /* Añadir un margen a la derecha para separar los elementos */
+    width: 100px; /* Ancho automático */
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 5px; /* Espacio entre checkboxes */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px; /* Reducir el tamaño del padding */
+    margin-top: 0px;
+    border: 2px solid #244183;
+    border-radius: 15px;
+    background-color:#ffe600; /* Color de fondo blanco para cubrir el fondo del checkbox */
+}
+
+/* Estilos para el checkbox cuando está marcado */
+input[type="checkbox"]:checked {
+    background-color: #244183; /* Cambia el color de fondo cuando está marcado */
+    border-color: #ffe600; /* Cambia el color del borde cuando está marcado */
+}
+
+select,
+input[type="date"],
+input[type="time"],
+input[type="number"],
+input[type="decimal"],
+textarea {
+    flex: 1; /* Hacer que el select y el input ocupen el 50% del contenedor */
+    margin-right: 10px; /* Añadir un margen a la derecha para separar los elementos */
+    width: calc(100% - 10px); /* Establecer el ancho */
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    margin-top: 0px;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+.input-horas-extra {
+    flex: 1;
+    margin-left: 0px;
+    margin-right: 5px;
+    width: calc(95% - 10px);
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    margin-top: 0px;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+/* Estilos para el input de tiempo laborado */
+#tiempoLaborado {
+    flex: 1;
+    margin-left: 0px;
+    margin-right: 5px;
+    width: calc(95% - 10px);
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    margin-top: 0px;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+#totalDescanso {
+    flex: 1;
+    margin-left: 0px;
+    margin-right: 5px;
+    width: calc(95% - 10px);
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    margin-top: 0px;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+#tiempoReal {
+    flex: 1;
+    margin-left: 0px;
+    margin-right: 5px;
+    width: calc(95% - 10px);
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    margin-top: 0px;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+/* Estilos para los botones */
+.boton-menu {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    transition: background-color 0.3s ease;
+}
+
+.boton-menu:hover {
+    background-color: #0F3057;
+}
+
+.boton-guardar {
+    position:relative;
+    margin-top: -10px;
+    left: 45%;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    transition: background-color 0.3s ease;
+}
+
+.boton-guardar:hover {
+    background-color: #0F3057;
+}
+
+#boton-mas {
+    position:relative;
+    left: 72.2%;
+    background-color: #ffe600;
+    color: #0F3057;
+    padding: 10px 20px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    font-size: 28px; /* Ajusta el tamaño del texto del botón */
+    transition: transform 0.1s ease;
+}
+
+#boton-mas:hover {
+    background-color: #18af18;
+    color:#0F3057;
+    transform: rotate(720deg); 
+}
+
+.boton-cancelar {
+    position:relative;
+    left: 79%;
+    background-color: #ffe600;
+    color: #0F3057;
+    padding: 10px 20px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    font-size: 28px; /* Ajusta el tamaño del texto del botón */
+    transition: transform 0.1s ease;
+}
+
+.boton-cancelar:hover {
+    background-color: #db0909;
+    color:#0F3057;
+    transform: rotate(720deg); 
+}
+
+/* Estilos para los grupos de elementos */
+.articulo,
+.grupo,
+.proceso,
+.estandar,
+.hora,
+.descansos,
+.a,
+.b,
+.c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -10px; /* Espacio entre cada par de elementos */
+}
+
+/* Estilos para las etiquetas dentro de los grupos */
+label {
+    width: 180px; /* Ancho fijo para todos los labels */
+    text-align: left; /* Alinea el texto a la derecha */
+    margin-right: 10px; /* Espaciado a la derecha */
+    display: inline-block; /* Asegura que los labels ocupen el mismo espacio */
+}
+
+/* Estilos para el select de artículos */
+#articulo {
+    flex: 1; /* Hace que el select ocupe el 50% del contenedor */
+    margin-left: 0; /* Elimina el margen izquierdo */
+    margin-right: 10px; /* Agrega un margen derecho */
+    width: calc(100% - 10px); /* Establece el ancho */
+    font-weight: bold; /* Texto en negrita */
+    color: #244183; /* Color de texto azul */
+    display: block; /* Muestra como bloque */
+    margin-bottom: 10px; /* Espaciado inferior */
+    text-align: center; /* Alineación centrada */
+    position: relative; /* Posición relativa */
+    z-index: 2; /* Índice z */
+    padding: 10px; /* Añade relleno */
+    margin-top: 0; /* Elimina el margen superior */
+    border: 2px solid #244183; /* Borde sólido */
+    border-radius: 15px; /* Borde redondeado */
+    background-color: #ffffff; /* Color de fondo blanco */
+}
+
+/* Estilos para los elementos dentro de los grupos */
+.proceso select,
+.estandar select,
+.grupo select,
+.hora input[type="time"],
+.estandar input[type="text"],
+.estandar input[type="number"],
+.descansos input[type="text"],
+.cod_grupo input[type="number"],
+.totalDescanso input[type="number"],
+.a input[type="time"],
+.b input[type="number"],
+.b input[type="text"],
+.b textarea {
+    flex: 1; /* Hace que los selectores y inputs ocupen el 50% del espacio */
+    margin-left: 0; /* Espacio entre el input y el select */
+    margin-right: auto; /* Añadir un margen a la derecha para separar los elementos */
+    width: 10px; /* Ancho automático */
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 5px; /* Espacio entre checkboxes */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px; /* Reducir el tamaño del padding */
+    margin-top: -5px;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+/* Estilo para el contenedor form */
+.container-form {
+    max-width: 1100px; /* Ajusta el ancho según sea necesario */
+    margin: 20px auto;
+    margin-top: -90px;
+    padding: 20px;
+    border: 10px solid #244183; /* Agrega el borde */
+    border-radius: 50px;
+    position: relative;
+    background: linear-gradient(to right, #ffffff, #ffffff 75%, transparent 50%);
+    overflow: hidden;
+}
+
+.empleado {
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Espacio entre cada par de elementos */
+}
+
+/* Estilo para el label del select empleado */
+.label-empleado {
+    position: absolute;
+    margin-top: -63px;
+    left: 23%;
+    width: auto;
+    color: #244183; 
+    font-weight: bold;
+}
+
+/* Estilo para el label del input cédula */
+.label-cedula {
+    position: relative;
+    margin-top: auto;
+    left: auto;
+    color: #244183;
+}
+
+.empleado input[type="number"] {
+    left: auto;
+    flex: 1; /* Hace que los selectores y inputs ocupen el 50% del espacio */
+    margin-left: -2px; /* Espacio entre el input y el select */
+    margin-right: auto; /* Añadir un margen a la derecha para separar los elementos */
+    width: 93px; /* Ancho automático */
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 5px; /* Espacio entre checkboxes */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px; /* Reducir el tamaño del padding */
+    margin-top: auto;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+.empleado select{
+    flex: 1; /* Hace que los selectores y inputs ocupen el 50% del espacio */
+    margin-right: auto; /* Añadir un margen a la derecha para separar los elementos */
+    width: 78%; /* Ancho automático */
+    font-weight: bold;
+    color: #244183;
+    margin-bottom: 5px; /* Espacio entre checkboxes */
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+    padding: 10px; /* Reducir el tamaño del padding */
+    margin-top: -60px;
+    left: 22%;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+/* Estilo para el contenedor "c" */
+.c {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los elementos dentro del contenedor "c" */
+.c textarea {
+    flex: 1;
+    margin-left: 0;
+    margin-right: 5px;
+    width: calc(100% - 10px);
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+    margin-top: 0;
+    border: 2px solid #244183;
+    border-radius: 15px;
+}
+
+/* Estilos para el conjunto de elementos clonados */
+#conjunto-existente {
+    margin-top: 20px; /* Espaciado superior entre conjuntos */
+}
+
+/* Estilos específicos para los elementos dentro del conjunto */
+#conjunto-existente input,
+#conjunto-existente select {
+    margin-right: 10px; /* Espaciado derecho entre elementos */
+    /* Agrega más estilos según sea necesario */
+}

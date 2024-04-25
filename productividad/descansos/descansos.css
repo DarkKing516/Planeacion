@@ -1,0 +1,251 @@
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #244183; 
+    font-weight: bold;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 10px solid #244183;
+    border-radius: 50px;
+    position: relative;
+    background: linear-gradient(to right, #ffe600, #ffe600 75%, transparent 50%);
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 20px solid #244183;
+    transform: translateX(-50%);
+    z-index: -1;
+    background-color: transparent;
+    border-left: none;
+    width: 75%;
+}
+
+label.front-label,
+select.front-select {
+    text-align: center; 
+    color: #244183; 
+    font-weight: bold; 
+}
+
+input,
+select {
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    width: 95%; 
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #244183;
+    border-radius: 15px; 
+}
+
+input::placeholder {
+    color: #244183;
+}
+
+input[type="checkbox"] {
+    width: 15px; 
+    height: 15px;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: 2px solid #244183; /* Añadido para conservar el borde */
+}
+
+input[type="submit"]:hover {
+    background-color: #0F3057;
+}
+
+button {
+    background-color: #244183;
+    color: #FFFFFF; 
+    padding: 10px 20px;
+    border: 2px solid #244183; /* Añadido para conservar el borde */
+    position: relative;
+    left: 0%;
+    margin-top: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    display: block;
+}
+
+button:hover {
+    background-color: #0F3057; 
+    color: #FFFFFF;
+    border-color: #0F3057; /* Añadido para el hover del borde */
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+#logo {
+    width: 250px; 
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    cursor: pointer;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #244183; 
+    font-weight: bold;
+}
+
+table {
+    width: 98%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 2px solid #244183;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #244183;
+    color: #FFFFFF;
+}
+
+td {
+    background-color: white;
+}
+
+button {
+    background-color: #244183;
+    color: #FFFFFF; 
+    padding: 10px 20px;
+    border: 2px solid #244183;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+button:hover {
+    background-color: #ffe600; 
+    color: #244183;
+    border-color: #244183;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed; /* Posición fija para que se superponga al contenido */
+    z-index: 999; /* Z-index alto para que esté por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Agregar scroll si el contenido es más grande que el área del modal */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+}
+
+/* Estilos para el contenido del modal */
+.modal-contenido {
+    background-color: #fefefe;
+    margin: 10% auto; /* Centrar vertical y horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* Estilos para el botón de cerrar */
+.cerrar {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para los botones de editar y eliminar */
+.btn-eliminar {
+    cursor: pointer;
+    background-color: #f50000;
+    color: #FFFFFF;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-editar {
+    cursor: pointer;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para los botones cuando se les pasa el ratón por encima */
+.btn-eliminar:hover, .btn-editar:hover {
+    opacity: 0.8;
+}
+
+/* Estilos para los labels dentro del modal */
+.modal-contenido label {
+    color: #244183; /* Color azul */
+    font-weight: bold; /* Negrita */
+}
