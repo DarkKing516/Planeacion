@@ -24,7 +24,7 @@ if(isset($_POST['sede']) && isset($_POST['usuario']) && isset($_POST['fecha']) &
     // Verificar si la preparación de la declaración fue exitosa
     if ($stmt) {
         // Vincular parámetros y ejecutar la declaración dentro de un bucle
-        for ($i = 0; $i < count($_POST['cedula']); $i++) {
+        for ($i = $indice; $i < count($_POST['cedula']); $i++) {
             // Vincular parámetros
             $stmt->bind_param("ssssssssssssssss", $_POST['sede'], $_POST['usuario'], $_POST['fecha'], $_POST['cedula'][$i], $_POST['nombre'][$i], $_POST['grupo'][$i], $_POST['cod_articulo'], $_POST['articulo'][$i], $_POST['nombre_estandar'][$i], $_POST['t_estandar'], $_POST['peso_articulo'], $_POST['horas_dia'][$i], $_POST['minutos_dia'][$i], $_POST['tarea_dia'][$i], $_POST['peso_total'][$i], $_POST['observacion'][$i]);
 
@@ -48,18 +48,19 @@ if(isset($_POST['sede']) && isset($_POST['usuario']) && isset($_POST['fecha']) &
     echo $_POST['sede'];
     echo $_POST['usuario'];
     echo $_POST['fecha'];
-    echo $_POST['cedula'][0];
-    echo $_POST['nombre'][0];
-    // echo $_POST['grupo'][0];
-    // echo $_POST['cod_articulo'][0];
-    // echo $_POST['articulo'][0];
-    // echo $_POST['nombre_estandar'][0];
-    // echo $_POST['t_estandar'][0];
-    // echo $_POST['peso_articulo'][0];
-    echo $_POST['horas_dia'][0];
-    echo $_POST['minutos_dia'][0];
-    echo $_POST['tarea_dia'][0];
-    echo $_POST['peso_total'][0];
-    echo $_POST['observacion'][0];
+    echo $indice = $_POST['indice'];
+    echo $_POST['cedula'][$indice];
+    echo $_POST['nombre'][$indice];
+    echo $_POST['grupo'];
+    echo $_POST['cod_articulo'];
+    echo $_POST['articulo'];
+    echo $_POST['nombre_estandar'];
+    echo $_POST['t_estandar'];
+    echo $_POST['peso_articulo'];
+    echo $_POST['horas_dia'][$indice];
+    echo $_POST['minutos_dia'][$indice];
+    echo $_POST['tarea_dia'][$indice];
+    echo $_POST['peso_total'][$indice];
+    echo $_POST['observacion'][$indice];
 }
 ?>
