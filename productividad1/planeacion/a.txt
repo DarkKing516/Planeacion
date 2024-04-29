@@ -1,0 +1,6 @@
+no hay un proceso universal
+
+- specificacion de software: funcionalidad
+- desarrollo: produccio cumplimiento de requisitos
+- validacion: verificacion de lo requerido
+- evoludcion: para requisitos cambiantes

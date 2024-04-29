@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESTABLECER CONTRASEÑA.</title>
+    <style>
+        /* Estilos para la página */
+        body {
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            position: relative;
+            top: auto;
+            left: -10%;
+            text-align: center;
+            color: #244183;
+        }
+        
+        h2 {
+            position: relative;
+            top: -33px;
+            left: auto;
+            text-align: center;
+            color: #244183;
+        }
+
+        .header {
+            background-color: #ffe600;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            position: relative;
+            top: -165px;
+            left: auto;
+            margin-right: 0px;
+            height: 200px; /* ajusta la altura según tu logo */
+        }
+
+        form {
+            max-width: 800px; /* Ajusta el tamaño del contenedor del formulario */
+            margin: 20px auto;
+            margin-top: 5%;
+            left: -7%;
+            padding: 85px 80px;
+            border: 10px solid #244183;
+            border-radius: 50px;
+            position: relative;
+            background: linear-gradient(to right, #ffe600, #ffe600 75%, transparent 50%);
+            overflow: hidden;
+        }
+
+        form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: 20px solid #244183;
+            transform: translateX(-50%);
+            z-index: -1;
+            background-color: transparent;
+            border-left: none;
+            width: 75%;
+        }
+
+        label.front-label,
+        select.front-select {
+            text-align: center;
+            color: #244183;
+            font-weight: bold;
+        }
+
+        input {
+            font-weight: bold;
+            color: #244183;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+            position: relative;
+            top: -10%;
+            left: -20px;
+            z-index: 2;
+            width: 95%;
+            padding: 10px 25px;
+            margin-top: 5px;
+            border: 2px solid #244183;
+            border-radius: 15px;
+        }
+        
+        select {
+            font-weight: bold;
+            color: #244183;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+            position: relative;
+            top: -8%;
+            left: auto;
+            z-index: 2;
+            width: 95%;
+            padding: 10px 50px;
+            margin-top: 5px;
+            border: 2px solid #244183;
+            border-radius: 15px; 
+        }
+
+        input::placeholder {
+            color: #244183;
+        }
+
+        input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            background-color: #244183;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 10px auto; /* centrar el botón */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0F3057;
+        }
+
+        /* Estilos para checkboxes */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-label {
+            margin-right: 10px;
+            font-weight: bold;
+            color: #244183;
+        }
+
+        /* Estilo base para el checkbox */
+        .checkbox-container input {
+            opacity: 0;
+            position: absolute;
+        }
+
+        /* Estilo del contenedor del checkbox */
+        .checkmark {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 2px solid #244183;
+            border-radius: 3px;
+        }
+
+        /* Estilo del chulo cuando el checkbox está marcado */
+        .checkbox-container input:checked + .checkmark:after {
+            content: "\2713"; /* Código del chulo (checkmark) Unicode */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            font-size: 15px; /* Tamaño del chulo */
+            font-weight: bold; /* Hacer el chulo más grueso */
+            color: #FFFFFF; /* Color del chulo cuando está marcado */
+        }
+
+        /* Estilo del contenedor del checkbox cuando está marcado */
+        .checkbox-container input:checked + .checkmark {
+            background-color: #4CAF50; /* Color verde de fondo cuando está marcado */
+            border-color: #244183; /* Color azul del borde cuando está marcado */
+            color: #244183; /* Color del chulo cuando está marcado */
+            display: flex; /* Utiliza flexbox para centrar verticalmente */
+            align-items: center; /* Centra verticalmente el contenido */
+            justify-content: center; /* Centra horizontalmente el contenido */
+        }
+
+
+        .submit-button-container {
+            position: absolute;
+            top: 375px; /* Ajusta la posición verticalmente */
+            left: 55%;
+            transform: translateX(-50%);
+        }
+
+        .submit-button {
+            cursor: pointer;
+            background-color: #244183;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #0F3057;
+        }
+
+        .show-password-button {
+            cursor: pointer;
+            background-color: #244183;
+            color: #FFFFFF;
+            padding: 8px 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 347px; /* Ajusta la posición verticalmente */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .show-password-button:hover {
+            background-color: #0F3057;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .olvidar-contrasena {
+            white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+            display: inline-block; /* Cambiar a inline-block */
+            position: absolute;
+            padding: 8px 20px;
+            top: 300px; /* Ajusta la posición verticalmente según sea necesario */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h1>RESTABLECER CONTRASEÑA.</h1>
+    <form action="procesar_restablecimiento.php" method="POST">
+        <label for="correo">CORREO ELECTRÓNICO:</label>
+        <input type="email" id="correo" name="correo" required>
+        <input type="submit" value="RESTABLECER CONTRASEÑA">
+    </form>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<?php
+// Iniciar sesión
+session_start();
+
+// Verificar si no hay una sesión activa para el usuario
+if (!isset($_SESSION['usuario'])) {
+    // Redirigir al usuario de vuelta a la página de inicio de sesión
+    header("Location: /productividad/index.php");
+    exit(); // Asegurar que el script se detenga después de redirigir
+}
+
+// Guardar el nombre de usuario en una variable de sesión
+$usuario_actual = $_SESSION['usuario'];
+
+// Conexión a la base de datos usando PDO
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "datosgenerales";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Obtener sedes
+    $stmt = $conn->prepare("SELECT DISTINCT sede FROM empleados");
+    $stmt->execute();
+    $sedes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Obtener usuarios
+    $stmt = $conn->prepare("SELECT DISTINCT usuario FROM usuario");
+    $stmt->execute();
+    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Cerrar la declaración
+    $stmt = null;
+} catch (PDOException $e) {
+    // Manejo de errores de PDO
+    error_log("Error de conexión a la base de datos: " . $e->getMessage());
+    exit("Error de conexión a la base de datos. Por favor, inténtelo de nuevo más tarde.");
+} finally {
+    // Cerrar la conexión
+    $conn = null;
+}
+
+?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTIÓN DE PLANEACIÓN</title>
+    <link rel="stylesheet" href="planeacion.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="planeacion.js"></script>
+</head>
+
+<body>
+    <h1>GESTIÓN DE PLANEACIÓN</h1>
+
+    <!-- Botón "Ir al menú" fuera del formulario -->
+    <a href="/productividad/menu.php" class="boton-menu">
+        IR AL MENÚ
+    </a>
+
+    <form id="form-estandar" method="POST" action="tu_proceso.php">
+        <div class="container-izquierda">
+            <label for="sede">SEDE:</label><br>
+            <select id="sede" name="sede" required>
+                <option value="">SELECCIONE UNA SEDE</option>
+                <?php
+                foreach ($sedes as $sede) {
+                    echo "<option value='" . htmlspecialchars($sede['sede']) . "'>" . htmlspecialchars($sede['sede']) . "</option>";
+                }
+                ?>
+            </select>
+        </div><br>
+        <div class="container-izquierda">
+            <label for="usuarios">USUARIO:</label><br>
+            <input type="text" id="usuarios" name="usuarios" value="<?php echo htmlspecialchars($usuario_actual); ?>" readonly>
+        </div><br>
+
+        <div class="container-derecha">
+            <div id="container-tiempo-estandar">
+                <label for="fecha">FECHA PLANEACION:</label><br>
+                <input type="date" id="fecha" name="fecha" required>
+            </div>
+            <div id="container-tiempo-estandar">
+                <label for="per_autorizado">PERSONAL AUTORIZADO:</label><br>
+                <input type="text" id="per_autorizado" name="per_autorizado" readonly>
+            </div>
+        </div>
+
+        <table id="tabla-empleados"></table>
+        <button type="button" class="boton-guardar" onclick="guardarPlaneacion()">GUARDAR</button>
+    </form>
+</body>
+
+</html>

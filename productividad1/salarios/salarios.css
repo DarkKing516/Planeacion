@@ -1,0 +1,78 @@
+h1 {
+    text-align: center;
+    color: #244183;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%; /* Ajusta la tabla al 100% del ancho de la página */
+    margin-left: 0; /* Elimina cualquier margen izquierdo */
+}
+
+tr, td  {
+    border: 2px solid #244183;
+    text-align: left;
+    padding: 10px;
+}
+
+th {
+    background-color: #244183;
+    color: white;
+}
+
+.menu-button {
+    cursor: pointer;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #0F3057;
+}
+
+
+/* Estilos para el botón GUARDAR */
+.boton-guardar {
+    cursor: pointer;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Agrega margen superior de 20px */
+    display: block; /* Convertir en bloque para centrarlo */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+/* Estilos para el botón GUARDAR al pasar el cursor */
+.boton-guardar:hover {
+    background-color: #0F3057;
+}
+
+.tabla-button {
+    cursor: pointer;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.tabla-button:hover {
+    background-color: #0F3057;
+}

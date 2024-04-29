@@ -1,10 +1,10 @@
-$(document).ready(function () {
+$(document).ready(function() {
     // Cargar empleados de la sede inicial seleccionada
     var sedeSeleccionada = $("#sede").val();
     cargarEmpleados(sedeSeleccionada);
 
     // Actualizar empleados cuando se cambia la sede seleccionada
-    $("#sede").change(function () {
+    $("#sede").change(function() {
         var nuevaSede = $(this).val();
         cargarEmpleados(nuevaSede);
     });
@@ -14,14 +14,14 @@ $(document).ready(function () {
             url: "obtener_empleados.php",
             type: "POST",
             data: { sede: sede },
-            success: function (response) {
+            success: function(response) {
                 $("#tabla-empleados").html(response);
                 // Actualizar el número de empleados autorizados
                 $("#per_autorizado").val(response.per_autorizado);
                 // Agregar opciones de grupo y cargar artículo en cada fila
                 agregarOpcionesEstandar();
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.error(xhr.responseText);
             }
         });
@@ -33,14 +33,14 @@ $(document).ready(function () {
             url: "obtener_grupos_estandar.php",
             type: "GET",
             dataType: 'json', // Especificamos que esperamos datos en formato JSON
-            success: function (grupos) {
+            success: function(grupos) {
                 // Recorrer cada fila excepto la primera (encabezados de columna)
-                $("#tabla-empleados tr:not(:first)").each(function (index, fila) {
+                $("#tabla-empleados tr:not(:first)").each(function(index, fila) {
                     // Crear el menú desplegable con opciones de grupo
-                    var opcionesGrupo = '<select name="grupos" class="grupo">';
-                    // opcionesGrupo += '<option value="default">SELECCIONAR GRUPO</option>';
+                    var opcionesGrupo = '<select name="grupo" class="grupo">';
+                    opcionesGrupo += '<option value="">SELECCIONAR GRUPO</option>';
                     // Agregar las opciones de grupo obtenidas de la tabla estandar
-                    $.each(grupos, function (index, nombre) {
+                    $.each(grupos, function(index, nombre) {
                         opcionesGrupo += '<option value="' + nombre + '">' + nombre + '</option>';
                     });
                     opcionesGrupo += '</select>';
@@ -57,41 +57,28 @@ $(document).ready(function () {
                     $(fila).find("td:eq(5)").html(opcionesArticulo);
 
                     // Manejar evento de cambio en el menú desplegable de grupo
-                    $(fila).find(".grupo").change(function () {
+                    $(fila).find(".grupo").change(function() {
                         var grupoSeleccionado = $(this).val();
                         cargarArticulo(grupoSeleccionado, fila);
                     });
 
                     // Manejar evento de cambio en el menú desplegable de artículo
-                    $(fila).find(".articulo").change(function () {
+                    $(fila).find(".articulo").change(function() {
                         var articuloSeleccionado = $(this).val();
                         cargarPesoArticulo(articuloSeleccionado, fila);
                     });
                 });
 
                 // Mostrar el código del artículo en la columna 4 (fuera del bucle each)
-                $("#tabla-empleados tr:not(:first) td:eq(4)").text(function (index) {
+                $("#tabla-empleados tr:not(:first) td:eq(4)").text(function(index) {
                     return $(this).closest("tr").find("td:eq(5) option:selected").text();
                 });
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.error(xhr.responseText);
             }
         });
     }
-
-    // Asignar el evento de cambio al contenedor padre de los elementos .grupo y filtrar
-    $("#tabla-empleados").on("change", ".grupo", function () {
-        var grupoSeleccionado = $(this).val();
-        cargarArticulo(grupoSeleccionado, $(this).closest("tr"));
-    });
-
-    // Asignar el evento de cambio al contenedor padre de los elementos .articulo y filtrar
-    $("#tabla-empleados").on("change", ".articulo", function () {
-        var articuloSeleccionado = $(this).val();
-        cargarPesoArticulo(articuloSeleccionado, $(this).closest("tr"));
-    });
-
 
     // Función para cargar los artículos según el grupo seleccionado
     function cargarArticulo(grupoSeleccionado, fila) {
@@ -100,7 +87,7 @@ $(document).ready(function () {
             type: "GET",
             data: { grupo: grupoSeleccionado },
             dataType: 'json',
-            success: function (articulos) {
+            success: function(articulos) {
                 // Limpiar el select de artículos
                 var selectArticulo = $(fila).find(".articulo");
                 selectArticulo.empty();
@@ -111,7 +98,7 @@ $(document).ready(function () {
                 var codigosArticulo = [];
 
                 // Agregar las opciones de artículos
-                $.each(articulos, function (index, articulo) {
+                $.each(articulos, function(index, articulo) {
                     // Agregar opción al select de artículos con el nombre del artículo
                     selectArticulo.append('<option value="' + articulo.nombre + '">' + articulo.nombre + '</option>');
 
@@ -120,7 +107,7 @@ $(document).ready(function () {
                 });
 
                 // Llamar a la función para cargar los estándares cuando se cambie la selección del artículo
-                selectArticulo.change(function () {
+                selectArticulo.change(function() {
                     var articuloSeleccionado = $(this).val();
                     cargarEstandares(articuloSeleccionado, fila);
 
@@ -129,7 +116,7 @@ $(document).ready(function () {
                     $(fila).find("td:eq(4)").text(codigoArticulo);
                 });
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.error(xhr.responseText);
             }
         });
@@ -142,7 +129,7 @@ $(document).ready(function () {
             type: "GET",
             data: { articulo: articuloSeleccionado },
             dataType: 'json',
-            success: function (estandares) {
+            success: function(estandares) {
                 // Limpiar el select de nombres estándar
                 var selectNombreEstandar = $('<select class="estandar"></select>');
 
@@ -150,7 +137,7 @@ $(document).ready(function () {
                 selectNombreEstandar.append('<option value="">SELECCIONAR ESTÁNDAR</option>');
 
                 // Agregar las opciones de nombres estándar
-                $.each(estandares, function (index, estandar) {
+                $.each(estandares, function(index, estandar) {
                     // Agregar opción al select de nombres estándar con el nombre del estándar
                     selectNombreEstandar.append('<option value="' + estandar.nombre_estandar + '">' + estandar.nombre_estandar + '</option>');
                 });
@@ -159,17 +146,17 @@ $(document).ready(function () {
                 $(fila).find("td:eq(6)").html(selectNombreEstandar);
 
                 // Manejar evento de cambio en el menú desplegable de estándar
-                selectNombreEstandar.change(function () {
+                selectNombreEstandar.change(function() {
                     var nombreEstandarSeleccionado = $(this).val();
                     // Buscar el t_estandar correspondiente al nombre_estandar seleccionado
-                    var tEstandar = estandares.find(function (estandar) {
+                    var tEstandar = estandares.find(function(estandar) {
                         return estandar.nombre_estandar === nombreEstandarSeleccionado;
                     }).t_estandar;
                     // Mostrar el t_estandar en la columna 7
                     $(fila).find("td:eq(7)").text(tEstandar);
                 });
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.error(xhr.responseText);
             }
         });
@@ -182,7 +169,7 @@ $(document).ready(function () {
             type: "GET",
             data: { articulo: articuloSeleccionado }, // Cambiado a 'articulo' en lugar de 'codigo'
             dataType: 'json',
-            success: function (response) {
+            success: function(response) {
                 // Verificar si la respuesta contiene un error
                 if (response.hasOwnProperty('error')) {
                     console.error(response.error);
@@ -191,14 +178,14 @@ $(document).ready(function () {
                     $(fila).find("td:eq(8)").text(response.peso);
                 }
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.error(xhr.responseText);
             }
         });
     }
 
     // Delegar el evento oninput para calcular los minutos
-    $("#tabla-empleados").on("input", ".horas_dia", function () {
+    $("#tabla-empleados").on("input", ".horas_dia", function() {
         var index = $(this).data("index");
         calcularMinutos(index);
     });
@@ -208,10 +195,10 @@ $(document).ready(function () {
 
         // Obtener el valor de horas_dia para la fila específica y parsearlo como un número
         var horasDia = parseFloat($("#horas_dia_" + index).val());
-
+        
         // Calcular los minutos
         var minutosDia = horasDia * 60;
-
+        
         // Actualizar el valor de minutos_dia para la fila específica
         $("#minutos_dia_" + index).val(minutosDia);
 
@@ -246,17 +233,20 @@ $(document).ready(function () {
     }
 
     // Manejar el clic en el botón de guardar
-    $('#guardarDatos').click(function () {
+    $('#guardarDatos').click(function(){
         // Aquí puedes agregar el código para guardar los datos, por ejemplo:
+        var datosFormulario = $('#form-estandar').serialize();
+        var grupoSeleccionado = $(this).closest("tr").find(".grupo").val();
+
         $.ajax({
             url: 'procesar_formulario.php',
             method: 'POST',
-            data: $('#form-estandar').serialize(), // Envía los datos del formulario
-            success: function (response) {
+            data: datosFormulario + '&grupo=' + grupoSeleccionado, // Envía los datos del formulario
+            success: function(response) {
                 alert('DATOS GUARDADOS CORRECTAMENTE');
                 // Puedes realizar alguna acción adicional después de guardar los datos si es necesario
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.error(error);
                 alert('OCURRIÓ UN ERROR AL GUARDAR LOS DATOS');
             }

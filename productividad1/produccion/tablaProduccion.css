@@ -1,0 +1,65 @@
+/* Estilos para la página */
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+#logo {
+    width: 250px; 
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    cursor: pointer;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #244183; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 2px solid #244183;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #244183;
+    color: #FFFFFF;
+}
+
+td {
+    background-color: white;
+}
+
+button, .edit-button {
+    background-color: #244183;
+    color: #FFFFFF; 
+    padding: 10px 20px;
+    border: 2px solid #244183;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+button:hover, .edit-button:hover {
+    background-color: #ffe600; 
+    color: #244183;
+    border-color: #244183;
+}
+
+a {
+    text-decoration: none;
+}

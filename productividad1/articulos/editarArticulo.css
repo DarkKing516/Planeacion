@@ -1,0 +1,104 @@
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    margin-left: 10px; /* Aplica el margen a todos los elementos */
+}
+
+h1, h2 {
+    text-align: center;
+    color: #244183;
+    margin-left: 0; /* Resetea el margen para h1 */
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 10px solid #244183;
+    border-radius: 50px;
+    position: relative;
+    background: linear-gradient(to right, #ffe600, #ffe600 75%, transparent 50%);
+    overflow: hidden;
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    border-left: 20px solid #244183;
+    transform: translateX(-50%);
+    z-index: -1;
+    background-color: transparent;
+    border-left: none;
+    width: 75%;
+}
+
+label.front-label,
+select.front-select {
+    text-align: center; 
+    color: #244183; 
+    font-weight: bold; 
+}
+
+input,
+select {
+    font-weight: bold;
+    color: #244183;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    width: 95%; 
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #244183;
+    border-radius: 15px; 
+}
+
+input::placeholder {
+    color: #244183;
+}
+
+input[type="checkbox"] {
+    width: 15px; 
+    height: 15px;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    background-color: #244183;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0F3057;
+}
+
+button, input[type="file"] {
+    background-color: #244183;
+    color: #FFFFFF; 
+    padding: 10px 20px;
+    border: 2px solid #244183;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button:hover, input[type="file"]:hover {
+    background-color: #0F3057;
+    border-color: #0F3057;
+}
